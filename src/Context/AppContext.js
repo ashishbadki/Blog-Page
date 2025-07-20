@@ -4,6 +4,7 @@
 import React, { createContext, useState } from 'react';
 import { baseUrl } from '../baseUrl';
 import Pagination from '../components/Pagination';
+import './AppContext.css'
 // Step 1: Create the context
 export const AppContext = createContext();
 

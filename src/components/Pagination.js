@@ -1,33 +1,29 @@
-import React from 'react'
-import { useContext } from 'react'
-import { AppContext } from '../Context/AppContext'
+import React, { useContext } from 'react';
+import { AppContext } from '../Context/AppContext';
+import './Pagination.css';
 
 function Pagination() {
-  const {page , handlePageChange , totalPage} = useContext(AppContext);
-  return (
-    <div>
-      <div>
-        {
-          page>1 && 
-          <button onClick={()=> handlePageChange(page-1)}>
-            Previous
-          </button>
-        }
-        {
+  const { page, handlePageChange, totalPage } = useContext(AppContext);
 
-          page<totalPage &&
-          <button onClick={()=> handlePageChange(page+1)}>
-            Next
-          </button>
-        }
-        <button>Page {page} of {totalPage}</button>
-      </div>
+  return (
+    <div className="pagination-container">
+      {page > 1 && (
+        <button onClick={() => handlePageChange(page - 1)}>
+          Previous
+        </button>
+      )}
+
+      {page < totalPage && (
+        <button onClick={() => handlePageChange(page + 1)}>
+          Next
+        </button>
+      )}
+
+      <button className="page-info" disabled>
+        Page {page} of {totalPage}
+      </button>
     </div>
-  )
+  );
 }
 
-export default Pagination
-
-
-
-
+export default Pagination;
